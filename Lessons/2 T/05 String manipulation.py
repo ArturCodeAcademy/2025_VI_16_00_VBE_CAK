@@ -8,7 +8,14 @@ print(text)
 
 # jei tekstas turi būti sudarytas iš kelių eilučių,
 # mes galime naudoti trijų kabučių simbolį
-text = """Hello,
+text = """Hello,sfjsdkgh
+dgmskdhglksfdgd
+hjsgd
+hjgfda
+h
+afdjhgds
+jgs
+d
 World!"""
 print(text)
 
@@ -100,7 +107,7 @@ text = "Hello, \"World!\""
 print(text) # Hello, "World!"
 
 # \' - apostrofas
-text = "Hello, \'World!\'"
+text = 'Hello, \'World!\''
 print(text) # Hello, 'World!'
 
 # \\ - atvirkštinis brūkšnys
@@ -171,6 +178,7 @@ print(text.upper()) # HELLO, WORLD!
 # Teksto pakeitimas
 text = "Hello, World!"
 print(text.replace("Hello", "Goodbye")) # Goodbye, World!
+print(text.replace("o", "0")) # Goodbye, World!
 
 # Teksto padalijimas
 text = "Hello, World!"
