@@ -1,0 +1,1 @@
+open("rez.txt", "w").write("\n".join(str(i * i) for i in range(1, 100)))
