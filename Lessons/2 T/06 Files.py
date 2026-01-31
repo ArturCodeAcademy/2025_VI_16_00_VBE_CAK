@@ -101,4 +101,4 @@ data = 10
 with open("Other file.txt", "a") as file:
     file.write(str(data))  # data konvertuojamas į string'ą
     file.write(f"{data}")  # data konvertuojamas į string'ą
-    file.write(data)  # TypeError: write() argument must be str, not int
+    # file.write(data)  # TypeError: write() argument must be str, not int
