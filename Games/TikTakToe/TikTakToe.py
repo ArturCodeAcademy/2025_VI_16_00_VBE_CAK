@@ -1,14 +1,31 @@
 import os
 import datetime
+import random
+import time
+
+RESET = "\033[0m"
+RED   = "\033[31m"
+BLUE  = "\033[34m"
+YELLOW= "\033[33m"
+CYAN  = "\033[36m"
+GREEN = "\033[32m"
+BOLD  = "\033[1m"
 
 game_board = [' '] * 9
 current_player = 'X'
 player_1_turn = True
+is_ai_game = False
 winner = ""
 game_ended = False
 
 player_1_name = input("Enter name for Player 1 (X): ")
-player_2_name = input("Enter name for Player 2 (O): ")
+
+print("Use AI for Player 2? (y/n): ")
+if input().lower() == 'y':
+    is_ai_game = True
+    player_2_name = "AI Bot"
+else:
+    player_2_name = input("Enter name for Player 2 (O): ")
 
 start_timer = datetime.datetime.now()
 
@@ -27,7 +44,21 @@ while not game_ended:
     os.system('cls' if os.name == 'nt' else 'clear')
     print(f"Current board:")
     for i in range(3):
-        print(f" {game_board[i*3]} | {game_board[i*3+1]} | {game_board[i*3+2]} ")
+        if game_board[i*3] == 'X':
+            print(f" {RED}{game_board[i*3]}{RESET}", end='')
+        else:
+            print(f" {BLUE}{game_board[i*3]}{RESET}", end='')
+
+        if game_board[i*3+1] == 'X':
+            print(f" | {RED}{game_board[i*3+1]}{RESET}", end='')
+        else:
+            print(f" | {BLUE}{game_board[i*3+1]}{RESET}", end='')
+
+        if game_board[i*3+2] == 'X':
+            print(f" | {RED}{game_board[i*3+2]}{RESET} ")
+        else:
+            print(f" | {BLUE}{game_board[i*3+2]}{RESET} ")
+
         if i < 2:
             print("---+---+---")
 
@@ -57,23 +88,27 @@ while not game_ended:
         else:
             print()
 
-    while True:
-        choice = input(f"\nSelect a position (0-8) for {current_player} ({current_player_symbol}): ")
-        log_file.write(f"[{datetime.datetime.now():%Y-%m-%d %H:%M:%S}] {current_player} selected position {choice}\n")
-        if not choice.isdigit():
-            print("Invalid input. Please enter a number between 0 and 8 from the available positions.")
-            continue
+    if is_ai_game and not player_1_turn:
+        choice = random.choice([i for i in range(9) if game_board[i] == ' '])
+        time.sleep(1)
+    else:
+        while True:
+            choice = input(f"\nSelect a position (0-8) for {current_player} ({current_player_symbol}): ")
+            log_file.write(f"[{datetime.datetime.now():%Y-%m-%d %H:%M:%S}] {current_player} selected position {choice}\n")
+            if not choice.isdigit():
+                print("Invalid input. Please enter a number between 0 and 8 from the available positions.")
+                continue
 
-        choice = int(choice)
-        if choice < 0 or choice > 8:
-            print("Invalid input. Please enter a number between 0 and 8.")
-            continue
+            choice = int(choice)
+            if choice < 0 or choice > 8:
+                print("Invalid input. Please enter a number between 0 and 8.")
+                continue
 
-        if game_board[choice] != ' ':
-            print("Position already taken. Choose another position.")
-            continue
+            if game_board[choice] != ' ':
+                print("Position already taken. Choose another position.")
+                continue
 
-        break
+            break
 
     if player_1_turn:
         game_board[choice] = 'X'
@@ -114,7 +149,21 @@ while not game_ended:
 os.system('cls' if os.name == 'nt' else 'clear')
 print(f"Final board:")
 for i in range(3):
-    print(f" {game_board[i*3]} | {game_board[i*3+1]} | {game_board[i*3+2]} ")
+    if game_board[i * 3] == 'X':
+        print(f" {RED}{game_board[i * 3]}{RESET}", end='')
+    else:
+        print(f" {BLUE}{game_board[i * 3]}{RESET}", end='')
+
+    if game_board[i * 3 + 1] == 'X':
+        print(f" | {RED}{game_board[i * 3 + 1]}{RESET}", end='')
+    else:
+        print(f" | {BLUE}{game_board[i * 3 + 1]}{RESET}", end='')
+
+    if game_board[i * 3 + 2] == 'X':
+        print(f" | {RED}{game_board[i * 3 + 2]}{RESET} ")
+    else:
+        print(f" | {BLUE}{game_board[i * 3 + 2]}{RESET} ")
+
     if i < 2:
         print("---+---+---")
 
