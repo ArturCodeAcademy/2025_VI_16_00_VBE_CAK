@@ -31,7 +31,7 @@ result = sum_two_numbers(10, 20)
 print(result)  # 30
 
 # Mes galime pakeisti eiliškumą, nurodydami parametrus
-result = sum_two_numbers(b=20, a=10)
+result = sum_two_numbers(b=20)
 print(result)  # 30
 
 # Jei mes turime masyvą, kurį norime išskaidyti į parametrus,
