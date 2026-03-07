@@ -34,7 +34,7 @@ class Monitor:
 
 
 monitor1 = Monitor("Samsung", 24)
-monitor2 = monitor1.copy()
+monitor2 = Monitor(monitor1.brand, monitor1.size)  # Sukuriame naują objektą su tais pačiais duomenimis.
 
 print(monitor1.brand)  # Samsung
 print(monitor2.brand)  # Samsung

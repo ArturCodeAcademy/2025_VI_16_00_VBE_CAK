@@ -14,7 +14,7 @@ class Person:  # Klasės pavadinimas Person
     # Šis metodas yra vadinamas konstruktoriumi.
     # Konstruktorius yra metodas, kuris yra iškviečiamas,
     # kai sukuriamas naujas objektas.
-    def __init__(self, name, surname, age, height, weight):
+    def __init__(self, name, surname, age, height, weight, some_param=5):
         # self yra objekto nuoroda.
         # self yra privalomas kiekvienam metode, kuris priklauso klasės.
         # self leidžia pasiekti objekto kintamuosius ir metodus.
@@ -25,11 +25,14 @@ class Person:  # Klasės pavadinimas Person
         # Kintamieji, kurie yra priskiriami objektui,
         # turi būti aprašyti klasės konstruktoriuje.
         # Čia mes priskiriame reikšmes objekto laukams (kintamiesiems).
-        self.name = name
+        self.n = name
         self.surname = surname
         self.age = age
         self.height = height
         self.weight = weight
+        self.full_name = f"{name} {surname}"  # Galime sukurti papildomą kintamąjį, kuris saugo pilną vardą.
+        self.PI = 3.14  # Galime sukurti papildomą kintamąjį, kuris saugo konstantą.
+        self.some_param = some_param  # Galime sukurti papildomą kintamąjį, kuris saugo papildomą parametrą.
 
 
 # Sukuriamas naujas objektas klases Person.
@@ -47,7 +50,7 @@ person = Person("Jonas", "Jonaitis", 30, 1.80, 80)
 # ir tikrai žinome, kas yra kas, nes duomenys turi pavadinimus.
 
 # Gauname vardą
-print(person.name)  # Jonas
+print(person.n)  # Jonas
 
 # Gauname pavardę
 print(person.surname)  # Jonaitis
@@ -63,15 +66,32 @@ print(person.weight)  # 80
 
 # Objekto kintamieji (laukai) gali būti keičiami.
 
-person.name = "Petras"
+person.n = "Petras"
 person.surname = "Petraitis"
 person.age = 40
 person.height = 1.70
 person.weight = 80
 
 print()
-print(person.name)  # Petras
+print(person.n)  # Petras
 print(person.surname)  # Petraitis
 print(person.age)  # 40
 print(person.height)  # 1.7
 print(person.weight)  # 80
+print(person.full_name)
+print(person.PI)
+print(person.some_param)  # 5
+
+class Car:
+    def __init__(self, brand, model, year, color):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.color = color
+
+
+car = Car("Toyota", "Corolla", 2020, "Red")
+print(car.brand)  # Toyota
+print(car.model)  # Corolla
+print(car.year)  # 2020
+print(car.color)  # Red

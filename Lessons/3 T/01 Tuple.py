@@ -33,6 +33,7 @@ print(human_arr)
 
 human_tuple = (name, surname, age, height, weight)
 print(human_tuple)
+print(human_tuple[2])
 
 # Tuple yra nekintamas, todėl negalime keisti jo elementų.
 # human_tuple.append("test") # AttributeError: 'tuple' object has no attribute 'append'
