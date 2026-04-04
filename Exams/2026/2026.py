@@ -17,6 +17,15 @@ class StudentsSubjects:
         return f"{self.id} {self.subjects}"
 
 
+class SubjectStatistics:
+    def __init__(self, subject_name, students_count):
+        self.subject_name = subject_name
+        self.students_count = students_count
+
+    def __str__(self):
+        return f"{self.subject_name} {self.students_count}"
+
+
 def calculate_students_in_class(students, class_name):
     s = 0
     for student in students:
@@ -101,7 +110,28 @@ c12 = calculate_students_in_class(students, "12c")
 
 students_with_incorrect_ids = get_students_with_incorrect_ids(students)
 
-# -----------------
+subjects_statistics = []
+for students_subjects in subjects:
+    for subject in students_subjects.subjects:
+        found = False
+        for stat in subjects_statistics:
+            if stat.subject_name == subject:
+                stat.students_count += 1
+                found = True
+                break
+
+        if not found:
+            subjects_statistics.append(SubjectStatistics(subject, 1))
+
+# subjects_statistics.sort(key=lambda x: (-x.students_count, x.subject_name))
+
+for i in range(len(subjects_statistics) - 1):
+    for j in range(i + 1, len(subjects_statistics)):
+        if subjects_statistics[i].students_count < subjects_statistics[j].students_count:
+            subjects_statistics[i], subjects_statistics[j] = subjects_statistics[j], subjects_statistics[i]
+        elif subjects_statistics[i].students_count == subjects_statistics[j].students_count:
+            if subjects_statistics[i].subject_name > subjects_statistics[j].subject_name:
+                subjects_statistics[i], subjects_statistics[j] = subjects_statistics[j], subjects_statistics[i]
 
 with open("Rezultatai.txt", "w") as fout:
     fout.write(f"{a12} {b12} {c12}\n")
@@ -112,3 +142,6 @@ with open("Rezultatai.txt", "w") as fout:
         if not is_student_selected_subjects_correctly(student, subjects):
             fout.write(f"{student.fullname}\n")
 
+    for stat in subjects_statistics:
+        fout.write(str(stat))
+        fout.write("\n")

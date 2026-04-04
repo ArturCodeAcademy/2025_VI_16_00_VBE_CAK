@@ -6,3 +6,13 @@ Anna Caldwell
 Ivy Stanton
 Tom Vance
 Andrew Porter
+BL 7
+MAT 7
+GEO 3
+HIS 3
+BIO 2
+ENG 2
+INF 2
+POL 2
+CHE 1
+PHY 1
