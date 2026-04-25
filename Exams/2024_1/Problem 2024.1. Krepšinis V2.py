@@ -1,0 +1,3 @@
+d = {}
+for i, (id, values) in enumerate(map(lambda x: (int(x.split()[0]), list(map(int, x.split()))[1:]), open("U1.txt").read().splitlines()[1:])): d.setdefault(id, (i, []))[1].append(values)
+open("U1rez.txt", "w").write(str(max(len(v) for _, v in d.values())) + "\n" + "\n".join([f"{id} {(points[0] + points[2] * 2 + points[4] * 3) / max(len(v) for _, v in d.values()):.1f} {(points[0] + points[2] + points[4]) / (points[1] + points[3] + points[5]) * 100:.0f} %" for id, _, points in sorted([(id, i, [sum(x) for x in zip(*values)])for id, (i, values) in d.items() if len(values) == max(len(v) for _, v in d.values())], key=lambda x: x[1])]))
