@@ -1,0 +1,2 @@
+days_duration = [(line[0], (line[3] * 60 + line[4] - line[1] * 60 - line[2]) + (line[7] * 60 + line[8] - line[5] * 60 - line[6])) for line in [list(map(int, line.split())) for line in open("U1.txt", "r").read().split("\n")[1:]] if sum(line[1:5]) != 0 and sum(line[5:]) != 0]
+open("U1rez.txt", "w").write(f"Minimalus laikas\n{min(days_duration, key=lambda x: x[1])[1]}\nDienos\n{' '.join([str(day) for day, duration in days_duration if duration == min(days_duration, key=lambda x: x[1])[1]])}")
