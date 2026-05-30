@@ -1,0 +1,2 @@
+d = [v for v in [(v[0], v[1], sum(map(int, v[3:])) / int(v[2])) for v in [x.split() for x in open("U2.txt", "r").read().split("\n")[1:] if len(x) > 0]] if v[2] >= 9]
+open("U2rez.txt", "w").write("Neatitinka vidurkis" if not d else "\n".join(["\n".join([v[0] + " " + str(len(v[1]))] + v[1]) for v in sorted([(v, [g[0] for g in d if g[1] == v]) for v in set(s[1] for s in d)], key=lambda x: (-len(x[1]), x[0]))]))
