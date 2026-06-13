@@ -1,0 +1,11 @@
+10
+K1 5 Lazeriai 7.1 Jonai 7.7 Moksliukai 6.6 Mokinukai 4.5 Virusai 4.7
+K2 5 Rytas 4.5 Moksliukai 4.5 Sausainiai 5.7 Virusai 9.8 Mokinukai 5.6
+K3 3 Rytas 7.4 Mokinukai 5.6 Sausainiai 6.1
+K4 4 Jonai 6.9 Lazeriai 5.1 Keksai 5.6 Virusai 4.5
+K5 5 Moksliukai 5.9 Sausainiai 3.9 Virusai 9.8 Rytas 4.5 Keksai 4.5
+K6 4 Lazeriai 2.6 Keksai 9.7 Rytas 9.8 Sausainiai 8.0
+K7 4 Keksai 4.8 Rytas 4.1 Moksliukai 5.3 Lazeriai 7.8
+K8 6 Mokinukai 4.8 Rytas 4.5 Lazeriai 9.7 Virusai 9.0 Keksai 6.5 Sausainiai 9.8
+K9 4 Lazeriai 6.4 Jonai 9.7 Moksliukai 6.5 Keksai 6.7
+K10 2 Jonai 5.4 Mokinukai 7.6

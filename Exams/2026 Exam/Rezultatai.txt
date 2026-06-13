@@ -1,0 +1,10 @@
+9.8
+K2 K5 K6 K8
+Rytas 6 34.8
+Keksai 6 37.8
+Lazeriai 6 38.7
+Mokinukai 5 28.1
+Moksliukai 5 28.8
+Sausainiai 5 33.5
+Virusai 5 37.8
+Jonai 4 29.7
